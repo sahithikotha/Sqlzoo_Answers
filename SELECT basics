@@ -1,0 +1,117 @@
+
+# 🌍 SQL SELECT Basics — My Learning Notes
+
+This page contains my notes, SQL queries, and what I learned while practicing **SELECT basics** using the `world` table.
+
+---
+
+## 🧠 Table Used: `world`
+
+| name | continent | area | population | gdp |
+|------|------------|------|-------------|------|
+| Afghanistan | Asia | 652230 | 25500100 | 20343000000 |
+| Albania | Europe | 28748 | 2831741 | 12960000000 |
+| Algeria | Africa | 2381741 | 37100000 | 188681000000 |
+| ... | ... | ... | ... | ... |
+
+---
+
+## 🏁 Question 1: Show the population of Germany
+
+**SQL Query**
+```sql
+SELECT population FROM world
+  WHERE name = 'Germany';
+
+
+Result
+
+population
+80716000
+
+What I learned
+
+Strings in SQL must be enclosed in single quotes (' ').
+
+The WHERE clause is used to filter rows that match specific criteria.
+
+You can return only the columns you need (here, just population).
+
+🌿 Question 2: Show the name and population for 'Sweden', 'Norway', and 'Denmark'
+
+SQL Query
+
+SELECT name, population FROM world
+  WHERE name IN ('Sweden', 'Norway', 'Denmark');
+
+
+Result
+
+name	population
+Denmark	5634437
+Norway	5124383
+Sweden	9675885
+
+What I learned
+
+The IN operator checks whether a value matches any item in a list.
+
+It’s a cleaner way to write multiple OR conditions (e.g., name='Sweden' OR name='Norway' OR name='Denmark').
+
+🗺️ Question 3: Show countries with an area between 200,000 and 250,000
+
+SQL Query
+
+SELECT name, area FROM world
+  WHERE area BETWEEN 200000 AND 250000;
+
+
+Result
+
+name	area
+Belarus	207600
+Ghana	238533
+Guinea	245857
+Guyana	214969
+Laos	236800
+Romania	238391
+Uganda	241550
+United Kingdom	242900
+
+What I learned
+
+BETWEEN checks for values within a range, including the boundaries.
+
+The query is equivalent to writing area >= 200000 AND area <= 250000.
+
+Helps filter numerical data easily.
+
+💬 Summary of Concepts Learned
+Concept	Description	Example
+WHERE	Filters records based on a condition	WHERE name = 'Germany'
+IN	Checks if a value is in a list of values	WHERE name IN ('Sweden','Norway')
+BETWEEN	Selects values within a range	WHERE area BETWEEN 200000 AND 250000
+🌈 My Reflection
+
+This was my first step in learning SQL SELECT statements.
+I learned how to:
+
+Use conditions to filter data.
+
+Retrieve specific columns.
+
+Write cleaner queries with IN and BETWEEN.
+Next, I’ll move on to SELECT from WORLD Part 2 to explore computed fields and conditions!
+
+🕓 Completed on: November 17, 2025
+💪 Status: ✅ Done
+
+
+---
+
+### ✅ Then, in your terminal:
+
+```bash
+git add SELECT_Basics_Learning.md
+git commit -m "Added SQL SELECT Basics notebook with queries, results, and learnings"
+git push
