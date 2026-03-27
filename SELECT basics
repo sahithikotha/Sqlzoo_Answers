@@ -1,72 +1,140 @@
-# 🧩 LeetCode SQL 50 & SQLZoo Practice
+# 🌍 SQL Practice – World Database
 
-This repository contains my **SQL practice journey** — solving exercises from **SQLZoo** and **LeetCode SQL 50**.  
-It includes examples, queries, outputs, and what I’ve learned from each topic.
-
----
-
-## 📊 SQL Practice: SELECT Basics – [SQLZoo](https://sqlzoo.net/wiki/SELECT_basics)
-
-These are my solutions and notes for the **SELECT Basics** section.  
-I practiced using the `world` table, which has columns:  
-`name`, `continent`, `area`, `population`, `gdp`.
+This repository contains my SQL practice using the **`world`** table.
+The goal is to build strong fundamentals in querying, filtering, and data analysis.
 
 ---
 
-## 🧠 What I’ve Learned
+## 📌 Table Overview
 
-### 1️⃣ SELECT with WHERE
-**Goal:** Get data based on specific conditions.
+| Column     | Description            |
+| ---------- | ---------------------- |
+| name       | Country name           |
+| continent  | Continent              |
+| area       | Area (sq. km)          |
+| population | Population             |
+| gdp        | Gross Domestic Product |
 
-**Example:** Show the population of Germany  
+---
+
+## 🧠 SQL Exercises
+
+---
+
+### ✅ 1. Population of Germany
+
+**📖 Problem:**
+Show the population of **Germany**.
+
+**💡 Query:**
 
 ```sql
-SELECT population FROM world
+SELECT population 
+FROM world
 WHERE name = 'Germany';
-Result:
-population
------------
-80716000
+```
 
-2️⃣ SELECT with IN
+**📊 Result:**
 
-Goal: Get values from a list of possible options.
+```
+84432670
+```
 
-Example: Show the name and population for Sweden, Norway, and Denmark
+**🧾 Explanation:**
 
-SELECT name, population FROM world
+* Used the `WHERE` clause to filter rows.
+* `'Germany'` is treated as a string using single quotes.
+* The query returns only the population column for the matching country.
+
+**🎯 What I Learned:**
+
+* How to filter data using `WHERE`
+* Importance of using single quotes for text values
+* Retrieving specific columns instead of entire rows
+
+---
+
+### ✅ 2. Population of Scandinavian Countries
+
+**📖 Problem:**
+Show the **name and population** of Sweden, Norway, and Denmark.
+
+**💡 Query:**
+
+```sql
+SELECT name, population 
+FROM world
 WHERE name IN ('Sweden', 'Norway', 'Denmark');
-Result:
-name     | population
---------- | ----------
-Denmark  | 5634437
-Norway   | 5124383
-Sweden   | 9675885
+```
 
-3️⃣ SELECT with BETWEEN
+**📊 Result:**
 
-Goal: Get data within a numeric range.
+```
+Denmark   5944145
+Norway    5514042
+Sweden    10545310
+```
 
-Example: Show countries with an area between 200,000 and 250,000 sq km
-SELECT name, area FROM world
+**🧾 Explanation:**
+
+* Used `IN` to check multiple values in a list.
+* Instead of writing multiple `OR` conditions, `IN` simplifies the query.
+* Selected two columns: `name` and `population`.
+
+**🎯 What I Learned:**
+
+* How to filter multiple values efficiently using `IN`
+* Cleaner alternative to multiple `OR` conditions
+* Selecting multiple columns in a query
+
+---
+
+### ✅ 3. Countries by Area (Range Filtering)
+
+**📖 Problem:**
+Show countries with an area between **200,000 and 250,000 sq. km**.
+
+**💡 Query:**
+
+```sql
+SELECT name, area 
+FROM world
 WHERE area BETWEEN 200000 AND 250000;
+```
 
-Result:
-name            | area
-----------------|------
-Belarus         | 207600
-Ghana           | 238533
-Guinea          | 245857
-Guyana          | 214969
-Laos            | 236800
-Romania         | 238391
-Uganda          | 241550
-United Kingdom  | 242900
+**📊 Result:**
 
-🧾 Summary Table
+```
+Belarus           202900
+Ghana             227533
+Guinea            245717
+Laos              230800
+Romania           231291
+United Kingdom    241930
+```
 
-| Concept | Description                        | Example                                       |
-| ------- | ---------------------------------- | --------------------------------------------- |
-| WHERE   | Filters rows based on condition    | `WHERE name = 'Germany'`                      |
-| IN      | Matches any value in a list        | `WHERE name IN ('Sweden','Norway','Denmark')` |
-| BETWEEN | Filters numeric ranges (inclusive) | `WHERE area BETWEEN 200000 AND 250000`        |
+**🧾 Explanation:**
+
+* Used `BETWEEN` to filter values within a range.
+* The range is **inclusive**, meaning both 200000 and 250000 are included.
+* This is useful for numeric comparisons like area, salary, marks, etc.
+
+**🎯 What I Learned:**
+
+* How to filter numeric ranges using `BETWEEN`
+* Understanding inclusive range behavior
+* Writing cleaner range conditions instead of multiple comparisons
+
+---
+
+## 🚀 Overall Learnings
+
+* Writing basic `SELECT` queries
+* Filtering data using `WHERE`
+* Using `IN` for multiple conditions
+* Using `BETWEEN` for range filtering
+* Structuring clean and readable SQL queries
+
+---
+
+✨ *This is part of my journey to mastering SQL.*
