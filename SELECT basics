@@ -1,7 +1,7 @@
-# 🌍 SQL Practice – World Database
+# 🌍 SQL Practice – SELECT basics (SQLZoo)
 
-This repository contains my SQL practice using the **`world`** table.
-The goal is to build strong fundamentals in querying, filtering, and data analysis.
+This repository contains my solutions to the **SQLZoo – SELECT basics** tutorial.
+All problem statements are kept **exactly as given**, along with my solutions, explanations, and key learnings.
 
 ---
 
@@ -21,10 +21,12 @@ The goal is to build strong fundamentals in querying, filtering, and data analys
 
 ---
 
-### ✅ 1. Population of Germany
+### ✅ 1. Introducing the world table of countries
 
 **📖 Problem:**
-Show the population of **Germany**.
+The example uses a WHERE clause to show the population of 'France'. Note that strings should be in 'single quotes';
+
+Modify it to show the population of Germany.
 
 **💡 Query:**
 
@@ -34,30 +36,23 @@ FROM world
 WHERE name = 'Germany';
 ```
 
-**📊 Result:**
- 
-```
-84432670
-```
-
 **🧾 Explanation:**
-
-* Used the `WHERE` clause to filter rows.
-* `'Germany'` is treated as a string using single quotes.
-* The query returns only the population column for the matching country.
+Used the `WHERE` clause to filter rows where the country name is Germany.
 
 **🎯 What I Learned:**
 
-* How to filter data using `WHERE`
-* Importance of using single quotes for text values
-* Retrieving specific columns instead of entire rows
+* Basic use of `SELECT`
+* Filtering data using `WHERE`
+* Using single quotes for string values
 
 ---
 
-### ✅ 2. Population of Scandinavian Countries
+### ✅ 2. Scandinavia
 
 **📖 Problem:**
-Show the **name and population** of Sweden, Norway, and Denmark.
+Checking a list The word IN allows us to check if an item is in a list. The example shows the name and population for the countries 'Brazil', 'Russia', 'India' and 'China'.
+
+Show the name and the population for 'Sweden', 'Norway' and 'Denmark'.
 
 **💡 Query:**
 
@@ -67,32 +62,22 @@ FROM world
 WHERE name IN ('Sweden', 'Norway', 'Denmark');
 ```
 
-**📊 Result:**
-
-```
-Denmark   5944145
-Norway    5514042
-Sweden    10545310
-```
-
 **🧾 Explanation:**
-
-* Used `IN` to check multiple values in a list.
-* Instead of writing multiple `OR` conditions, `IN` simplifies the query.
-* Selected two columns: `name` and `population`.
+Used `IN` to filter multiple values instead of writing multiple `OR` conditions.
 
 **🎯 What I Learned:**
 
-* How to filter multiple values efficiently using `IN`
-* Cleaner alternative to multiple `OR` conditions
-* Selecting multiple columns in a query
+* Using `IN` for multiple conditions
+* Writing cleaner queries
 
 ---
 
-### ✅ 3. Countries by Area (Range Filtering)
+### ✅ 3. Just the right size
 
 **📖 Problem:**
-Show countries with an area between **200,000 and 250,000 sq. km**.
+Which countries are not too small and not too big? BETWEEN allows range checking (range specified is inclusive of boundary values).
+
+Modify it to show the country and the area for countries with an area between 200,000 and 250,000.
 
 **💡 Query:**
 
@@ -102,28 +87,13 @@ FROM world
 WHERE area BETWEEN 200000 AND 250000;
 ```
 
-**📊 Result:**
-
-```
-Belarus           202900
-Ghana             227533
-Guinea            245717
-Laos              230800
-Romania           231291
-United Kingdom    241930
-```
-
 **🧾 Explanation:**
-
-* Used `BETWEEN` to filter values within a range.
-* The range is **inclusive**, meaning both 200000 and 250000 are included.
-* This is useful for numeric comparisons like area, salary, marks, etc.
+Used `BETWEEN` to filter values within a range (inclusive).
 
 **🎯 What I Learned:**
 
-* How to filter numeric ranges using `BETWEEN`
-* Understanding inclusive range behavior
-* Writing cleaner range conditions instead of multiple comparisons
+* Range filtering using `BETWEEN`
+* Understanding inclusive boundaries
 
 ---
 
@@ -131,10 +101,10 @@ United Kingdom    241930
 
 * Writing basic `SELECT` queries
 * Filtering data using `WHERE`
-* Using `IN` for multiple conditions
-* Using `BETWEEN` for range filtering
-* Structuring clean and readable SQL queries
+* Using `IN` for multiple values
+* Using `BETWEEN` for range conditions
+* Writing clean and readable SQL queries
 
 ---
 
-✨ *This is part of my journey to mastering SQL.*
+✨ *This module builds the foundation for all SQL queries and filtering techniques.*
